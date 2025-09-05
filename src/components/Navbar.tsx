@@ -7,63 +7,23 @@ const Navbar: FC = () => {
   const [open, setOpen] = useState<boolean>(false);
 
   return (
-    <nav className="bg-gray-900 text-white px-6 py-4 flex justify-between items-center">
-      <h1 className="text-xl font-bold">Recipe Center</h1>
-      <ul className="flex gap-6 items-center">
-        {/* Home */}
+    <nav className="bg-white shadow-md px-6 py-4 flex justify-between items-center sticky top-0 z-50">
+      <h1 className="text-2xl font-bold text-orange-500">🍳 Recipe Center</h1>
+      <ul className="flex gap-8 items-center">
         <li>
-          <Link href="/" className="hover:text-yellow-400 transition">
+          <Link href="/" className="text-gray-700 hover:text-orange-500 transition font-medium">
             Home
           </Link>
         </li>
-        {/* Cuisines with dropdown */}
-        <li className="relative">
-          <button
-            onClick={() => setOpen(!open)}
-            className="hover:text-yellow-400 transition"
-          >
-            Cuisines ▾
-          </button>
-          {open && (
-            <ul className="absolute right-0 mt-2 w-48 bg-white text-gray-800 rounded-lg shadow-lg z-50">
-              <li>
-                <Link
-                  href="/italianFood"
-                  className="block px-4 py-2 hover:bg-gray-100"
-                  onClick={() => setOpen(false)}
-                >
-                  Italian Food
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/indianFood"
-                  className="block px-4 py-2 hover:bg-gray-100"
-                  onClick={() => setOpen(false)}
-                >
-                  Indian Food
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/chineseFood"
-                  className="block px-4 py-2 hover:bg-gray-100"
-                  onClick={() => setOpen(false)}
-                >
-                  Chinese Food
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/arabFood"
-                  className="block px-4 py-2 hover:bg-gray-100"
-                  onClick={() => setOpen(false)}
-                >
-                  Arabic Food
-                </Link>
-              </li>
-            </ul>
-          )}
+        <li>
+          <Link href="/about" className="text-gray-700 hover:text-orange-500 transition font-medium">
+            About
+          </Link>
+        </li>
+        <li>
+          <Link href="/contact" className="text-gray-700 hover:text-orange-500 transition font-medium">
+            Contact
+          </Link>
         </li>
       </ul>
     </nav>

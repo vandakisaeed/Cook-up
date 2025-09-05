@@ -8,16 +8,6 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-6 flex flex-col items-center">
         <ul className="flex gap-6 mt-4 md:mt-0">
           <li>
-            <Link href="/" className="hover:text-yellow-400 transition">
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link href="/cuisines" className="hover:text-yellow-400 transition">
-              Cuisines
-            </Link>
-          </li>
-          <li>
             <Link href="/about" className="hover:text-yellow-400 transition">
               About
             </Link>
