@@ -16,6 +16,11 @@ const Navbar: FC = () => {
           </Link>
         </li>
         <li>
+          <Link href="/neon" className="text-gray-700 hover:text-orange-500 transition font-medium">
+            read from neon
+          </Link>
+        </li>
+        <li>
           <Link href="/about" className="text-gray-700 hover:text-orange-500 transition font-medium">
             About
           </Link>
