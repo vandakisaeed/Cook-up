@@ -1,5 +1,20 @@
 import { Recipe, SimpleRecipe } from '@/types';
 
+
+
+
+// lib/fetcher.ts
+export async function fetchJSON<T>(url: string): Promise<T> {
+  const res = await fetch(url);
+  if (!res.ok) {
+    throw new Error("Network response was not ok");
+  }
+  return res.json() as Promise<T>;
+}
+
+
+
+
 export const fetchRecipe = async (id: string): Promise<Recipe> => {
   const response = await fetch(`https://dummyjson.com/recipes/${id}`);
    
@@ -21,3 +36,5 @@ export const fetchRecipesByCuisine = async (cuisine: string): Promise<SimpleReci
   const data = await response.json();
   return data.recipes || [];
 };
+
+
