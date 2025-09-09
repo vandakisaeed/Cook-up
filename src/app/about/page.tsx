@@ -66,7 +66,7 @@ export default function About() {
             make something delicious together!
           </p>
           <a
-            href="/whole"
+            href="/"
             className="inline-block px-6 py-3 bg-green-600 text-white font-medium rounded-2xl shadow hover:bg-green-700 transition"
           >
             Explore Recipes
