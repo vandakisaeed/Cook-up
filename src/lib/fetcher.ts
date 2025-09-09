@@ -11,13 +11,20 @@ export const fetchRecipe = async (id: string): Promise<Recipe> => {
   return data;
 };
 
-export const fetchRecipesByCuisine = async (cuisine: string): Promise<SimpleRecipe[]> => {
-  const response = await fetch(`https://dummyjson.com/recipes/tag/${cuisine}`);
+// export const fetchRecipesByCuisine = async (cuisine: string): Promise<SimpleRecipe[]> => {
+//   const response = await fetch(`https://dummyjson.com/recipes/tag/${cuisine}`);
    
-  if (!response.ok) {
-    throw new Error('Something went wrong');
-  }
+//   if (!response.ok) {
+//     throw new Error('Something went wrong');
+//   }
    
-  const data = await response.json();
-  return data.recipes || [];
-};
+//   const data = await response.json();
+//   return data.recipes || [];
+// };
+
+
+export async function fetchRecipesByCuisine(cuisine: string): Promise<SimpleRecipe[]> {
+  const res = await fetch(`/api/recipes/by-cuisine?cuisine=${encodeURIComponent(cuisine)}`);
+  if (!res.ok) throw new Error("Failed to fetch recipes");
+  return res.json();
+}
