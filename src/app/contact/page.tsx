@@ -58,7 +58,7 @@ const ContactUs: React.FC = () => {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Your Name"
-                className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-400 focus:outline-none focus:ring-yellow-500 focus:border-yellow-500 focus:z-10 sm:text-sm"
+                className="appearance-none text-gray-500 rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-400 focus:outline-none focus:ring-yellow-500 focus:border-yellow-500 focus:z-10 sm:text-sm"
               />
             </div>
             <div className="mt-4">
@@ -73,7 +73,7 @@ const ContactUs: React.FC = () => {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Your Email"
-                className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-400 focus:outline-none focus:ring-yellow-500 focus:border-yellow-500 focus:z-10 sm:text-sm"
+                className="appearance-none text-gray-500 rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-400 focus:outline-none focus:ring-yellow-500 focus:border-yellow-500 focus:z-10 sm:text-sm"
               />
             </div>
             <div className="mt-4">
@@ -88,7 +88,7 @@ const ContactUs: React.FC = () => {
                 value={formData.message}
                 onChange={handleChange}
                 placeholder="Your Message"
-                className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-400 focus:outline-none focus:ring-yellow-500 focus:border-yellow-500 focus:z-10 sm:text-sm"
+                className="appearance-none text-gray-500 rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-400 focus:outline-none focus:ring-yellow-500 focus:border-yellow-500 focus:z-10 sm:text-sm"
               ></textarea>
             </div>
           </div>
