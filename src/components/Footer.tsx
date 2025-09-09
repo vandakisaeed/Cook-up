@@ -1,7 +1,5 @@
 "use client";
 
-import Link from "next/link";
-
 export default function Footer() {
   return (
     <footer className="bg-gray-900 text-gray-300 py-6 mt-10">
@@ -20,8 +18,9 @@ export default function Footer() {
         </ul>
       </div> */}
 
+
       {/* Bottom note */}
-      <div className="text-center text-sm text-gray-500 mt-6 border-t border-gray-700 pt-4">
+      <div className="text-center text-sm text-gray-500 mt-4 ">
         © {new Date().getFullYear()} Recipe Center. All rights reserved.
       </div>
     </footer>
