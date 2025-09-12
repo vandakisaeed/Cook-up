@@ -130,8 +130,8 @@ const ProductSchema = z.object({
   rating: z.number(),
   reviewCount: z.number().int(),
   mealType: z.array(z.string()),
-  description: z.string().optional(), // some API items might not have it
-  category: z.string().optional()
+  description: z.string().optional(),
+  category: z.string().optional(),
 });
 
 const RecipesResponseSchema = z.object({
@@ -142,62 +142,55 @@ const RecipesResponseSchema = z.object({
 });
 
 async function main() {
-  console.log("🌱 Seeding database...");
+  try {
+    console.log("🌱 Seeding database...");
 
-  // 1. Clear old data
-  await prisma.recipe.deleteMany();
-  console.log("🗑️ Existing recipes deleted");
+    // 1. Clear old data
+    await prisma.recipe.deleteMany();
+    console.log("🗑️ Existing recipes deleted");
 
-  // 2. Fetch from API
-  const res = await fetch("https://dummyjson.com/recipes");
-  if (!res.ok) throw new Error("❌ Failed to fetch recipes");
+    // 2. Fetch from API
+    const res = await fetch("https://dummyjson.com/recipes");
+    if (!res.ok) throw new Error("❌ Failed to fetch recipes");
 
-  const json = await res.json();
+    const json = await res.json();
 
-  // 3. Validate response
-  const parsed = RecipesResponseSchema.safeParse(json);
-  if (!parsed.success) {
-    console.error("❌ Validation failed:", parsed.error.format());
-    throw new Error("API data does not match schema");
-  }
+    // 3. Validate response (throws if invalid)
+    const { recipes } = RecipesResponseSchema.parse(json);
 
-  const { recipes } = parsed.data;
+    // 4. Insert into DB
+    for (const r of recipes) {
+      await prisma.recipe.create({
+        data: {
+          id: r.id,
+          name: r.name,
+          ingredients: JSON.stringify(r.ingredients),
+          instructions: JSON.stringify(r.instructions),
+          prepTimeMinutes: r.prepTimeMinutes,
+          cookTimeMinutes: r.cookTimeMinutes,
+          servings: r.servings,
+          difficulty: r.difficulty,
+          cuisine: r.cuisine,
+          caloriesPerServing: r.caloriesPerServing,
+          tags: JSON.stringify(r.tags),
+          userId: r.userId,
+          image: r.image,
+          rating: r.rating,
+          reviewCount: r.reviewCount,
+          mealType: JSON.stringify(r.mealType),
+          description: r.description ?? "",
+          category: r.category ?? "Uncategorized",
+        },
+      });
+    }
 
-  // 4. Insert into DB
-  for (const r of recipes) {
-    await prisma.recipe.create({
-      data: {
-        id: r.id, // ⚠️ careful if DB autogenerates IDs
-        name: r.name,
-        ingredients: JSON.stringify(r.ingredients),
-        instructions: JSON.stringify(r.instructions),
-        prepTimeMinutes: r.prepTimeMinutes,
-        cookTimeMinutes: r.cookTimeMinutes,
-        servings: r.servings,
-        difficulty: r.difficulty,
-        cuisine: r.cuisine,
-        caloriesPerServing: r.caloriesPerServing,
-        tags: JSON.stringify(r.tags),
-        userId: r.userId,
-        image: r.image,
-        rating: r.rating,
-        reviewCount: r.reviewCount,
-        mealType: JSON.stringify(r.mealType),
-        description: r.description ?? "", // fallback if missing
-        category: r.category ?? "Uncategorized",
-      },
-    });
-  }
-
-  console.log(`✅ ${recipes.length} recipes imported into Neon!`);
-}
-
-// Run seeding
-main()
-  .catch((e) => {
+    console.log(`✅ ${recipes.length} recipes imported into Neon!`);
+  } catch (e) {
     console.error("❌ Error importing recipes:", e);
     process.exit(1);
-  })
-  .finally(async () => {
+  } finally {
     await prisma.$disconnect();
-  });
+  }
+}
+
+main();
