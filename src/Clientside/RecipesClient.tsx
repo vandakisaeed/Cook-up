@@ -65,11 +65,14 @@ export default function RecipesClient({ initialRecipes, categories }: RecipesCli
               href={`/recipes/${recipe.id}`}
               className="block bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all"
             >
-              <img
-                src={recipe.image}
-                alt={recipe.name}
-                className="w-full h-48 object-cover"
-              />
+              {recipe.image?.trim() && (
+                <img
+                  src={recipe.image}
+                  alt={recipe.name}
+                  className="w-full h-48 object-cover"
+                />
+              )}
+
               <div className="p-5">
                 <h2 className="font-bold text-lg mb-2">{recipe.name}</h2>
                 <p className="text-gray-600 text-sm mb-2">
