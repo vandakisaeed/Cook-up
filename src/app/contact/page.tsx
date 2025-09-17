@@ -29,6 +29,7 @@ const ContactPage: React.FC = () => {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ): void => {
     setForm({ ...form, [e.target.name]: e.target.value });
+
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
@@ -74,6 +75,7 @@ const ContactPage: React.FC = () => {
         </h1>
         <p className="text-center text-gray-600 mb-10 max-w-2xl mx-auto text-lg">
           Fill out the form below and we'll get back to you as soon as possible.
+
         </p>
 
         <div className="bg-white rounded-2xl shadow-lg p-8 max-w-2xl mx-auto border border-orange-100">

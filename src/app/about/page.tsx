@@ -79,7 +79,6 @@ const About: React.FC = () => {
           </div>
         </div>
 
-        
 
         {/* CTA Section */}
         <div className="bg-gradient-to-r from-orange-400 to-amber-500 rounded-2xl shadow-lg p-10 text-center">
@@ -100,3 +99,4 @@ const About: React.FC = () => {
 };
 
 export default About;
+
