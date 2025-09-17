@@ -35,7 +35,7 @@ export default function RecipesClient({ initialRecipes, categories }: RecipesCli
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search by name, cuisine, difficulty or tag..."
-          className="w-full max-w-lg border rounded-full px-5 py-3 shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+          className="w-full max-w-lg border rounded-full px-5 py-3 shadow-sm bg-white focus:outline-none focus:ring-2 focus:ring-orange-500"
         />
       </div>
 
