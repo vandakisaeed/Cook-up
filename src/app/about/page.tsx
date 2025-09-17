@@ -79,6 +79,7 @@ const About: React.FC = () => {
           </div>
         </div>
 
+
         {/* CTA Section */}
         <div className="bg-gradient-to-r from-orange-400 to-amber-500 rounded-2xl shadow-lg p-10 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">Join Our Culinary Community</h2>
@@ -98,3 +99,4 @@ const About: React.FC = () => {
 };
 
 export default About;
+
