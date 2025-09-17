@@ -16,7 +16,7 @@ export default async function RecipesPage() {
       tags: true,
       rating: true,
       reviewCount: true,
-      cuisine: true,
+      cuisine: true, 
       difficulty: true,
     },
     orderBy: { id: "asc" },
