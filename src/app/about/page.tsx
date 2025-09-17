@@ -76,23 +76,6 @@ const About: React.FC = () => {
           </p>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* ... (ostatak value kartica ostaje identičan) */}
-          </div>
-        </div>
-
-        {/* Stats Section */}
-        <div className="bg-white rounded-2xl shadow-lg p-8 mb-20 border border-orange-100">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">Recipe Center By The Numbers</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="text-center">
-              <div className="text-4xl font-bold text-orange-600 mb-2">10K+</div>
-              <div className="text-gray-600">Recipes</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-orange-600 mb-2">500K+</div>
-              <div className="text-gray-600">Community Members</div>
-            </div>
-            {/* ...ostatak sekcije identičan */}
           </div>
         </div>
 
